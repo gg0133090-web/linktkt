@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Acessar no Telegram — @familiadopecadobot</title>
+  <title>Acessar no Telegram — @AcesseAquiHoje_bot</title>
   <meta name="robots" content="noindex,nofollow" />
 
   <style>
@@ -60,17 +60,25 @@
   </div>
 
   <script>
-    /***** CONFIGURAÇÃO (já pronto p/ @familiadopecadobot?start=go) *****/
-    const USERNAME  = "familiadopecadobot";
-    const START_ARG = "go";
+    /***** CONFIGURAÇÃO (novo link sem start) *****/
+    const USERNAME  = "AcesseAquiHoje_bot";
+    const START_ARG = ""; 
     const IOS_DELAY_MS = 2500;
     const ANDROID_DELAY_MS = 600;
     const HTTPS_FALLBACK_DELAY_MS = 2600;
     /***************************************************/
 
-    const tgDeepLink = `tg://resolve?domain=${USERNAME}&start=${START_ARG}`;
-    const httpsLink  = `https://t.me/${USERNAME}?start=${START_ARG}`;
-    const chromeIntent = `intent://t.me/${USERNAME}?start=${START_ARG}#Intent;scheme=https;package=com.android.chrome;end`;
+    const tgDeepLink = START_ARG
+      ? `tg://resolve?domain=${USERNAME}&start=${START_ARG}`
+      : `tg://resolve?domain=${USERNAME}`;
+
+    const httpsLink = START_ARG
+      ? `https://t.me/${USERNAME}?start=${START_ARG}`
+      : `https://t.me/${USERNAME}`;
+
+    const chromeIntent = START_ARG
+      ? `intent://t.me/${USERNAME}?start=${START_ARG}#Intent;scheme=https;package=com.android.chrome;end`
+      : `intent://t.me/${USERNAME}#Intent;scheme=https;package=com.android.chrome;end`;
 
     const ua = navigator.userAgent || "";
     const isAndroid = /Android/i.test(ua);
